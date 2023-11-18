@@ -1,0 +1,17 @@
+task #1
+SELECT “courierId”,
+COUNT(“inDelivery” = ‘t’)
+FROM “Orders”
+GROUP BY “courierId”
+ORDER BY “courierId” ASC;
+
+task #2
+SELECT track,
+CASE
+WHEN finished = 't' THEN '2'
+WHEN cancelled = 't' THEN '-1'
+WHEN "inDelivery" = 't' THEN '1'
+ELSE '0'
+END
+FROM "Orders";
+
